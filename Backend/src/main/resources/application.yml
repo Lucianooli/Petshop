@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: Backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/PetShop
+    username: Admin
+    password: 8663
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/public/
