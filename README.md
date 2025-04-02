@@ -1,4 +1,4 @@
-# 🐾 **Bem-vindo ao [Nome do Seu Petshop]!** 🐾
+# 🐾 **Bem-vindo ao Pet Lilac!** 🐾
 
 
 📍 O lugar perfeito para cuidar do seu melhor amigo!  
