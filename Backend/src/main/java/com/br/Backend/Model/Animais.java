@@ -1,12 +1,16 @@
 package com.br.Backend.Model;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
+@Entity
 public class Animais {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nomeAnimal;
     private String descricao;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
     private CategoriaAnimal animal;
     private String raca;
     @ManyToOne

@@ -8,12 +8,15 @@ public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private String nome;
-    @Column(unique=true)
+    @Column(unique=true, nullable = false)
     private String email;
+    @Column(nullable = false)
     private String senha;
     private String telefone;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
 
