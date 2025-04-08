@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import styles from './formsProduto.module.css'; // descomente se estiver usando CSS Modules
+import styles from './FormsProduto.module.css';
 
 function FormsProduto() {
     const [categorias, setCategorias] = useState([]);
@@ -37,37 +37,55 @@ function FormsProduto() {
 
     const handleSubmit = async e => {
         e.preventDefault();
+
+        const categoriaSelecionada = categorias.find(cat => cat.id === parseInt(formData.categoriaId));
+        const subCategoriaSelecionada = subcategorias.find(sub => sub.id === parseInt(formData.subCategoriaId));
+
+        const produto = {
+            nome: formData.nome,
+            descricao: formData.descricao,
+            imagem: formData.imagem,
+            preco: parseFloat(formData.preco),
+            quantidade: parseInt(formData.quantidade),
+            categoria: categoriaSelecionada,
+            subCategoria: subCategoriaSelecionada
+        };
+
         try {
-            await axios.post('/api/produtos', formData);
-            alert('Produto cadastrado com sucesso!');
+            await axios.post('/api/produtos', produto);
+            alert('✨ Produto cadastrado com sucesso!');
+            setFormData({
+                nome: '',
+                descricao: '',
+                categoriaId: '',
+                subCategoriaId: '',
+                imagem: '',
+                preco: '',
+                quantidade: '',
+            });
         } catch (err) {
             console.error(err);
-            alert('Erro ao cadastrar o produto');
+            alert('❌ Erro ao cadastrar o produto');
         }
     };
 
-    if (isAdmin === null) {
-        return <p>Carregando...</p>; // styles.loading
-    }
-
-    if (!isAdmin) {
-        return <p>Você não tem permissão para acessar esta página.</p>; // styles.naoAutorizado
-    }
+    if (isAdmin === null) return <p>Carregando...</p>;
+    if (!isAdmin) return <p className={styles.naoAutorizado}>Você não tem permissão para acessar esta página.</p>;
 
     return (
-        <div>
-            <h2>Cadastrar Novo Produto</h2>
-            <form onSubmit={handleSubmit}>
+        <div className={styles.container}>
+            <h2 className={styles.titulo}>✨ Cadastrar Novo Produto</h2>
+            <form onSubmit={handleSubmit} className={styles.form}>
                 <input
                     name="nome"
-                    placeholder="Nome"
+                    placeholder="Nome do produto"
                     value={formData.nome}
                     onChange={handleChange}
                     required
                 />
                 <textarea
                     name="descricao"
-                    placeholder="Descrição"
+                    placeholder="Descrição detalhada"
                     value={formData.descricao}
                     onChange={handleChange}
                     required
@@ -79,11 +97,10 @@ function FormsProduto() {
                     onChange={handleChange}
                     required
                 >
-                    <option value="">Selecione a categoria</option>
+                    <option value="">Escolha uma categoria</option>
                     {categorias.map(cat => (
                         <option key={cat.id} value={cat.id}>{cat.tituloCategoria}</option>
                     ))}
-
                 </select>
 
                 <select
@@ -92,9 +109,9 @@ function FormsProduto() {
                     onChange={handleChange}
                     required
                 >
-                    <option value="">Selecione a subcategoria</option>
+                    <option value="">Escolha uma subcategoria</option>
                     {subcategorias.map(sub => (
-                        <option key={sub.id} value={sub.id}>{sub.nome}</option>
+                        <option key={sub.id} value={sub.id}>{sub.tituloSubCategoria}</option>
                     ))}
                 </select>
 
@@ -108,7 +125,7 @@ function FormsProduto() {
                 <input
                     type="number"
                     name="preco"
-                    placeholder="Preço"
+                    placeholder="Preço (R$)"
                     value={formData.preco}
                     onChange={handleChange}
                     required
@@ -116,13 +133,13 @@ function FormsProduto() {
                 <input
                     type="number"
                     name="quantidade"
-                    placeholder="Quantidade"
+                    placeholder="Quantidade em estoque"
                     value={formData.quantidade}
                     onChange={handleChange}
                     required
                 />
 
-                <button type="submit">Cadastrar</button>
+                <button type="submit">🎀 Cadastrar Produto</button>
             </form>
         </div>
     );

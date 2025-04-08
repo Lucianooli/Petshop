@@ -1,0 +1,53 @@
+.container {
+    max-width: 400px;
+    margin: 2rem auto;
+    background-color: #f0f8ff;
+    border: 2px dashed #add8e6;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(173, 216, 230, 0.3);
+    text-align: center;
+}
+
+.titulo {
+    font-size: 1.8rem;
+    color: #4682b4;
+    margin-bottom: 1rem;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input,
+.select {
+    padding: 0.8rem;
+    border: 2px solid #add8e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input:focus,
+.select:focus {
+    border-color: #4682b4;
+}
+
+.botao {
+    background-color: #4682b4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #4169e1;
+}

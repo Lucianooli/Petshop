@@ -19,7 +19,7 @@ function Card({ produto }) {
     return (
         <div className={styles.card}>
             <img
-                src={produto.imagemUrl || "/sem-imagem.png"}
+                src={produto.imagem || "/sem-imagem.png"}
                 alt={produto.nome}
                 className={styles.imagem}
             />

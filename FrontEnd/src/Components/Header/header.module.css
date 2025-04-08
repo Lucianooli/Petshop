@@ -153,6 +153,23 @@
     transform: rotate(45deg) translateY(-100%);
 }
 
+.logoutButton {
+    background-color: #ff6b6b;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logoutButton:hover {
+    background-color: #ff4c4c;
+    transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;

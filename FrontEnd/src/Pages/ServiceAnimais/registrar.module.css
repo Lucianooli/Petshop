@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("/background.jpg"); /* Adicione essa imagem na pasta pública */
+    background-size: cover;
+    background-position: center;
+    padding: 1rem;
+}
+.botaoVoltarFixo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.botaoVoltarFixo:hover {
+    background-color: #e0e0e0;
+}
+
+.form {
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    border: 3px dashed #ffb6c1;
+}
+
+.titulo {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff69b4;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.subtitulo {
+    font-size: 1.2rem;
+    color: #888;
+    margin: 1.2rem 0 0.8rem;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.inputGroup {
+    margin-bottom: 1.3rem;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ffb6c1;
+    border-radius: 1rem;
+    background-color: #fff0f5;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.inputGroup input:focus {
+    border-color: #ff69b4;
+    background-color: #fff8fa;
+}
+
+.botao {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #ff69b4;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #ff1493;
+}
+
+.erro {
+    color: #d9534f;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-style: italic;
+}

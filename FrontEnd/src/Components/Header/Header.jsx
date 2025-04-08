@@ -1,18 +1,29 @@
 import styles from "./header.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Header() {
     const [busca, setBusca] = useState("");
+    const [usuarioLogado, setUsuarioLogado] = useState(null);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const usuarioSalvo = localStorage.getItem("usuario");
+        if (usuarioSalvo) {
+            setUsuarioLogado(JSON.parse(usuarioSalvo));
+        }
+    }, []);
 
     const handleSearch = (e) => {
         e.preventDefault();
-
         if (busca.trim() === "") return;
-
-        // Redireciona para a rota de busca com o termo
         navigate(`/buscar?nome=${encodeURIComponent(busca)}`);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("usuario");
+        setUsuarioLogado(null);
+        navigate("/");
     };
 
     return (
@@ -36,8 +47,18 @@ function Header() {
                 </form>
 
                 <div className={styles.authButtons}>
-                    <Link to="/login" className={styles.loginButton}>Entrar</Link>
-                    <Link to="/registrar" className={styles.registerButton}>Registrar</Link>
+                    {!usuarioLogado ? (
+                        <>
+                            <Link to="/login" className={styles.loginButton}>Entrar</Link>
+                            <Link to="/registrar" className={styles.registerButton}>Registrar</Link>
+                        </>
+                    ) : (
+                        <>
+                            <span className={styles.usuarioNome}>👤 {usuarioLogado.nome}</span>
+                            <button onClick={handleLogout} className={styles.logoutButton}>
+                                🔓 Sair
+                            </button>                        </>
+                    )}
                 </div>
             </div>
         </header>

@@ -22,10 +22,16 @@ function LoginComponent() {
             }
 
             const data = await response.json();
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('role', data.role);
-            localStorage.setItem('nome', data.nome);
 
+            // Salva tudo como "usuario"
+            localStorage.setItem('usuario', JSON.stringify({
+                id: data.id,
+                nome: data.nome,
+                email: data.email,
+                role: data.role
+            }));
+
+            // Redireciona
             if (data.role === 'ADMIN') {
                 window.location.href = '/admin';
             } else {
@@ -36,6 +42,7 @@ function LoginComponent() {
             setErro(err.message);
         }
     };
+
 
     return (
         <div className={styles.container}>

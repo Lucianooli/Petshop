@@ -19,22 +19,27 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public Produtos criarProduto(@RequestBody Produtos produtos) {
-        return produtoService.SalvarProduto(produtos);
+    public Produtos criarProduto(@RequestBody Produtos produto) {
+        return produtoService.salvarProduto(produto);
     }
 
     @GetMapping
     public List<Produtos> listarProdutos() {
-        return produtoService.TodosProdutos();
+        return produtoService.todosProdutos();
     }
 
     @GetMapping("/buscar")
     public Optional<Produtos> buscarPorNome(@RequestParam String nome) {
-        return produtoService.BuscarProdutoPorNome(nome);
+        return produtoService.buscarProdutoPorNome(nome);
     }
 
     @DeleteMapping("/{id}")
     public void deletarProduto(@PathVariable Integer id) {
-        produtoService.DeletarProdutoId(id);
+        produtoService.deletarProdutoPorId(id);
     }
+    @GetMapping("/categoria/{id}")
+    public List<Produtos> buscarPorCategoria(@PathVariable Integer id) {
+        return produtoService.findByCategoriaId(id);
+    }
+
 }

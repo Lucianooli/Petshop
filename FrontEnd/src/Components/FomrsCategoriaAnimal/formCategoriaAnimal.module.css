@@ -1,19 +1,19 @@
 .container {
     max-width: 400px;
-    margin: 40px auto;
-    background-color: #fff0f5;
-    border: 2px dashed #ffb6c1;
-    border-radius: 16px;
+    margin: 2rem auto;
+    background-color: #fffafa;
     padding: 2rem;
-    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .titulo {
-    font-size: 1.8rem;
-    color: #ff69b4;
+    font-size: 1.5rem;
+    font-weight: bold;
     margin-bottom: 1rem;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #4b5563;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .formulario {
@@ -24,7 +24,7 @@
 
 .input {
     padding: 0.8rem;
-    border: 2px solid #ffb6c1;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
@@ -32,11 +32,11 @@
 }
 
 .input:focus {
-    border-color: #ff69b4;
+    border-color: #60a5fa;
 }
 
 .botao {
-    background-color: #ff69b4;
+    background-color: #3b82f6;
     color: white;
     border: none;
     border-radius: 8px;
@@ -47,5 +47,5 @@
 }
 
 .botao:hover {
-    background-color: #ff1493;
+    background-color: #2563eb;
 }

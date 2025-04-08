@@ -25,7 +25,10 @@ public class CategoriaService {
         return categoriaRepository.findAll();
     }
 
-
+    public Categoria BuscarCategoriaPorId(Integer id) {
+        return categoriaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
+    }
     public void DeletarCategoriaId(Integer id) {
         categoriaRepository.deleteById(id);
     }

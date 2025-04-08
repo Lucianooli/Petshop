@@ -1,3 +1,21 @@
+
+body,
+.Cursor {
+    cursor: url("/Cursor.png"), auto;
+}
+
+.Cursor button:hover,
+.Cursor a:hover,
+.Cursor input:hover,
+.Cursor select:hover,
+.Cursor textarea:hover,
+.Cursor label:hover,
+.Cursor .card:hover {
+    cursor: url("/CursorHouver.png"), auto;
+}
+
+
+
 .cardContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -6,16 +24,54 @@
     justify-items: center;
 }
 
+
+
+
 .card {
     width: 100%;
     max-width: 250px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-in-out;
 }
 
 .card:hover {
     transform: scale(1.03);
+}
+
+
+
+.secaoTitulo {
+    font-size: 1.8rem;
+    color: #ff6699;
+    text-align: center;
+    margin: 2rem 0 1rem;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.icone {
+    color: #ff99aa;
+    font-size: 1.4rem;
+}
+
+.divisor {
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, #fcb8d2, #ffdce0, #fcb8d2);
+    margin: 2rem auto;
+    border-radius: 10px;
+}
+
+
+.servicoContainer {
+    background-color: #fff6f8;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 1rem;
 }

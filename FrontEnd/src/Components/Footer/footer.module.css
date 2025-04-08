@@ -1,0 +1,49 @@
+.footer {
+    background-color: #ffeef2;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #5b4a4a;
+    border-top: 3px dashed #fcb8d2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6699;
+}
+
+.links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ff99aa;
+    font-size: 1rem;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.social a {
+    margin: 0 8px;
+    font-size: 1.5rem;
+    color: #ff6699;
+    transition: transform 0.2s;
+}
+
+.social a:hover {
+    transform: scale(1.2);
+}
+
+.copy {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #a88b8b;
+}

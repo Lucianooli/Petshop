@@ -31,4 +31,9 @@ public class CategoriaController {
     public void deletarCategoria(@PathVariable Integer id) {
         categoriaService.DeletarCategoriaId(id);
     }
+    @GetMapping("/{id}")
+    public Categoria buscarCategoriaPorId(@PathVariable Integer id) {
+        return categoriaService.BuscarCategoriaPorId(id);
+    }
+
 }
