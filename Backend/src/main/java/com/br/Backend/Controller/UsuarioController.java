@@ -3,9 +3,13 @@ package com.br.Backend.Controller;
 import com.br.Backend.Model.Usuarios;
 import com.br.Backend.Service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -49,4 +53,26 @@ public class UsuarioController {
     public void deletarPorEmail(@RequestParam String email) {
         usuarioService.DeletarUsuarioEmail(email);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Map<String, String> loginData) {
+        String email = loginData.get("email");
+        String senha = loginData.get("senha");
+
+        Optional<Usuarios> usuario = usuarioService.BuscarUsuarioPorEmail(email);
+
+        if (usuario.isPresent() && usuario.get().getSenha().equals(senha)) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("id", usuario.get().getId());
+            response.put("nome", usuario.get().getNome());
+            response.put("email", usuario.get().getEmail());
+            response.put("role", usuario.get().getRole());
+            return ResponseEntity.ok(response);
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+    }
+
+
+
 }

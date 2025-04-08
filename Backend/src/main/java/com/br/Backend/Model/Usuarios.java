@@ -10,15 +10,17 @@ public class Usuarios {
     private int id;
     @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
+    private String role;
     @Column(unique=true, nullable = false)
     private String email;
     @Column(nullable = false)
     private String senha;
+    @Column(nullable = false)
     private String telefone;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
-
 
     public int getId() {
         return id;
@@ -34,6 +36,14 @@ public class Usuarios {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getEmail() {
@@ -67,4 +77,17 @@ public class Usuarios {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public Usuarios() {}
+
+    public Usuarios(String nome,String role, String email, String senha, String telefone, Endereco endereco) {
+        this.nome = nome;
+        this.role = role;
+        this.email = email;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.endereco = endereco;
+
+    }
+
 }
